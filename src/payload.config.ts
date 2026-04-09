@@ -149,10 +149,10 @@ export default buildConfig({
     ...plugins,
     ...(process.env.BLOB_READ_WRITE_TOKEN
       ? [vercelBlobStorage({
-          enabled: true,
-          collections: { [Media.slug]: true },
-          token: process.env.BLOB_READ_WRITE_TOKEN,
-          clientUploads: true,
+          collections: {
+            media: true,
+          },
+          token: process.env.BLOB_READ_WRITE_TOKEN || '',
         })]
       : []),
   ],
