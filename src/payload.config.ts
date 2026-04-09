@@ -40,6 +40,14 @@ import { getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const isMigrating = process.argv.some((arg) => arg.includes('migrate'))
+const connectionString = isMigrating
+  ? process.env.POSTGRES_URL_NON_POOLING ||
+    process.env.DATABASE_URL_UNPOOLED ||
+    process.env.POSTGRES_URL ||
+    process.env.DATABASE_URL ||
+    ''
+  : process.env.POSTGRES_URL || process.env.DATABASE_URL || ''
 
 export default buildConfig({
   admin: {
@@ -120,7 +128,7 @@ export default buildConfig({
   db: vercelPostgresAdapter({
     push: process.env.NODE_ENV !== 'production',
     pool: {
-      connectionString: process.env.POSTGRES_URL || '',
+      connectionString,
     },
     prodMigrations: migrations,
   }),
