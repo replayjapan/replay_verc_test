@@ -278,11 +278,11 @@ export const seed = async ({
     buffer: readLocalFile(path.join(imageFixDir, file)),
   }))
 
-  const catalogDocs = await Promise.all(
-    catalogBuffers.map(({ alt, buffer }) =>
-      payload.create({ collection: 'media', data: { alt }, file: buffer }),
-    ),
-  )
+  const catalogDocs = []
+  for (const { alt, buffer } of catalogBuffers) {
+    const doc = await payload.create({ collection: 'media', data: { alt }, file: buffer })
+    catalogDocs.push(doc)
+  }
 
   const catalogImages: Record<string, number> = {}
   catalogBuffers.forEach(({ key }, i) => {
