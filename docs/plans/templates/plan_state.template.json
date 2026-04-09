@@ -1,0 +1,26 @@
+{
+  "plan_id": "M[NN]",
+  "framework_version": "0.6.2",
+  "mode": "guided",
+  "change_type": "replace-me",
+  "current_checkpoint": "A",
+  "checkpoints": {
+    "A": { "status": "pending" },
+    "B": { "status": "pending" }
+  },
+  "allowed_files": [
+    "docs/plans/CURRENT_PLAN.md"
+  ],
+  "flags": {
+    "schema_change": false,
+    "seed_change": false,
+    "destructive": false,
+    "framework_change": false
+  },
+  "required_reviewers": [
+    "framework-auditor"
+  ],
+  "reviewer_results": [],
+  "developer_corrections": [],
+  "handoff_required": true
+}

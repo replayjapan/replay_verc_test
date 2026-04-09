@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="40px" viewBox="0 0 120 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>rePlay Logo</title>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <text font-family="Arial-BoldMT, Arial" font-size="24" font-weight="bold" fill="#1B365D">
+            <tspan x="5" y="28">re</tspan>
+            <tspan x="32" y="28" fill="#FF6B2B">Play</tspan>
+        </text>
+    </g>
+</svg>

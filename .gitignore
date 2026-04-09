@@ -1,0 +1,52 @@
+build
+dist / media
+node_modules
+.DS_Store
+.env
+.next
+.vercel
+.mcp.json
+
+# Payload default media upload directory
+public/media/
+
+public/robots.txt
+public/sitemap*.xml
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+
+# Handoff zips (generated at ship time, not committed)
+docs/handoff/**/*.zip
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Local browser / MCP / agent runtime
+.playwright-mcp/
+*.log
+
+# Local review artifacts
+screenshots/
+
+# Local planning state
+docs/plans/CURRENT_PLAN.md
+
+# Local exports / backups / temp
+artifacts/
+tmp/
+temp/
+backups/
+exports/
+
+# Editor-local
+.claude/settings.local.json

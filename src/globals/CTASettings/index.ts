@@ -1,0 +1,1 @@
+export { CTASettings } from './config'

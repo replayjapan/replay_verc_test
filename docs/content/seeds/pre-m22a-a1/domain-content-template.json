@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "description": "Domain content generation template for Cowork. Contains field specs, 6 completed examples, and the list of remaining domains needing content.",
+    "generatedAt": "2026-03-24",
+    "generatedBy": "Pre-M22a (A1) milestone",
+    "instructions": "Read the governance files referenced below before generating. Generate content for each domain matching the format, tone, and quality of the examples. All content in Japanese. Write output as a JSON array to domain-content-remaining.json."
+  },
+  "contentGovernance": {
+    "voiceBrief": "docs/content/voice-brief.md",
+    "domainCopyRubric": "docs/content/domain-copy-rubric.md",
+    "setThesisLines": "docs/content/set-thesis-lines.md",
+    "approvedFacts": "docs/content/approved-facts.md",
+    "summaryRules": [
+      "All content in Japanese — Japanese-first rhythm, not translated-English",
+      "Content reality level: illustrative — describe potential, never imply active operations",
+      "Premium but approachable tone — no loud sales language, no domainer jargon",
+      "Never mention internal tier labels (Trophy, Premium, Niche) on frontend",
+      "searchExcerpt: 80 double-byte chars max, purpose-written for search results",
+      "description: 120–220 Japanese characters, dense not bloated",
+      "Each domain must pass distinctiveness test: specific commercial angle + specific audience + specific reason the name matters",
+      "Set members share a thesis but each gets individual positioning — no near-duplicate copy",
+      "Matching IDN + romaji pairs must reference set-only sales rule",
+      "No claims about: traffic, demand, search volume, rankings, active operations, legal safety"
+    ]
+  },
+  "fieldSpecifications": {
+    "domainName": { "type": "text", "required": true, "description": "Full domain name including extension" },
+    "description": { "type": "textarea", "required": true, "charTarget": "120-220 Japanese characters", "description": "Short pitch for cards and detail hero" },
+    "slug": { "type": "text", "required": true, "description": "Latin-only, no periods, -idn suffix for IDN domains" },
+    "category": { "type": "relationship", "required": false, "description": "One of: ホテル・宿泊, ラグジュアリー, 旅行・観光, 音楽・エンターテインメント" },
+    "minimumOffer": { "type": "number", "required": true, "description": "Minimum offer threshold in JPY" },
+    "featured": { "type": "checkbox", "description": "true for the 6 featured domains only" },
+    "domainScript": { "type": "select", "options": ["latin", "japanese"], "description": "latin for ASCII domains, japanese for IDN" },
+    "registrationDate": { "type": "date", "format": "YYYY-MM-DDT00:00:00.000Z", "description": "Real registration date" },
+    "idnDisplay": { "type": "text", "description": "Unicode display form for IDN domains only" },
+    "richSummaryTitle": { "type": "text", "description": "Headline for the rich summary section on detail page" },
+    "richSummaryIntro": { "type": "text", "charTarget": "220-450 Japanese characters", "description": "Will be wrapped in toLexicalJSON() — provide plain text" },
+    "richSummaryBullets": { "type": "array of strings", "maxItems": 4, "description": "Bullet points for the rich summary section" },
+    "useCasesTitle": { "type": "text", "description": "Headline for use cases section" },
+    "useCasesSummary": { "type": "text", "description": "Will be wrapped in toLexicalJSON() — provide plain text" },
+    "useCases": { "type": "array of strings", "maxItems": 4, "description": "Specific, plausible business use cases" },
+    "searchExcerpt": { "type": "textarea", "maxChars": "80 double-byte (160 half-width)", "description": "Purpose-written for search results, separate from description" },
+    "searchKeywords": { "type": "text", "description": "Comma-separated functional keywords, Japanese-first" },
+    "seoTitle": { "type": "text", "description": "Meta title for SEO" },
+    "seoDescription": { "type": "text", "description": "Meta description for SEO" },
+    "ogTitle": { "type": "text", "description": "Open Graph title" },
+    "ogDescription": { "type": "text", "description": "Open Graph description" }
+  },
+  "domainCategories": [
+    "ホテル・宿泊",
+    "ラグジュアリー",
+    "旅行・観光",
+    "音楽・エンターテインメント"
+  ],
+  "examples": [
+    {
+      "domainName": "アニメ.com",
+      "description": "日本が世界に広めた「アニメ」という言葉をそのままドメインにした、カテゴリーを代表するブランド資産。配信プラットフォーム、メディア、ECサイトなど、アニメ産業に関わるあらゆる事業の中核として機能し得るドメインです。日本語話者にとって直感的で、グローバル市場でも高い認知度を持つ名称です。",
+      "slug": "anime-com-idn",
+      "category": "音楽・エンターテインメント",
+      "minimumOffer": 50000000,
+      "featured": true,
+      "domainScript": "japanese",
+      "registrationDate": "2005-09-18T00:00:00.000Z",
+      "idnDisplay": "アニメ.com",
+      "richSummaryTitle": "カテゴリーを定義するドメイン",
+      "richSummaryIntro": "「アニメ」は日本語から世界共通語となった数少ない言葉のひとつです。アニメ.comは、その言葉をドメインとして保有できる唯一の存在です。アニメ配信サービス、関連グッズのECサイト、ファンコミュニティ、ニュースメディアなど、アニメ産業に関わるあらゆる事業の中核ブランドとして機能する可能性を持っています。日本国内のファン層はもちろん、海外のアニメ市場へのリーチにも適しており、ブランドの信頼性と記憶性を兼ね備えています。",
+      "richSummaryBullets": ["アニメ産業全体をカバーする汎用性", "日本語・英語圏の両方で即座に認識される名称", "配信・EC・メディア・コミュニティなど多様な活用", "カテゴリーキーワードとしての強い訴求力"],
+      "useCasesTitle": "想定される活用シーン",
+      "useCasesSummary": "アニメ.comは、アニメ産業に関わるブランドや事業にとって理想的な基盤となり得るドメインです。",
+      "useCases": ["アニメ配信・ストリーミングサービス", "アニメグッズ・フィギュアのECサイト", "アニメニュース・レビューメディア", "ファンコミュニティ・イベントプラットフォーム"],
+      "searchExcerpt": "アニメ産業のブランド基盤となるカテゴリー定義ドメイン。配信・EC・メディアなど幅広い活用が可能。",
+      "searchKeywords": "アニメ、anime、ドメイン、配信、メディア、エンターテインメント",
+      "seoTitle": "アニメ.com — カテゴリーを代表するプレミアムドメイン",
+      "seoDescription": "日本発のグローバルキーワード「アニメ」のドメイン。配信・EC・メディア事業の中核ブランドに。",
+      "ogTitle": "アニメ.com｜rePlay Domains",
+      "ogDescription": "アニメ産業のブランド基盤となるプレミアムドメイン"
+    },
+    {
+      "domainName": "ホテルズ.com",
+      "description": "日本語で「ホテルズ」と直接入力できる.comドメイン。ホテル予約サービス、宿泊比較サイト、旅行プラットフォームなど、宿泊業界のオンラインブランド構築に適しています。日本語話者にとって自然な響きを持ち、ホテル関連サービスとの結びつきが明確なドメインです。",
+      "slug": "hotels-com",
+      "category": "ホテル・宿泊",
+      "minimumOffer": 5000000,
+      "featured": true,
+      "domainScript": "japanese",
+      "registrationDate": "2006-02-02T00:00:00.000Z",
+      "idnDisplay": "ホテルズ.com",
+      "richSummaryTitle": "宿泊ブランドのためのドメイン",
+      "richSummaryIntro": "ホテルズ.comは、日本語で「ホテルズ」と直感的に入力できる.comドメインです。ホテル予約プラットフォーム、宿泊施設の比較サイト、法人向け出張手配サービスなど、宿泊業界に関わるオンライン事業のブランド基盤として適しています。「ホテル」という日本語の複数形として自然に機能し、サービスの内容を名称だけで伝えることができます。Hotel .comセットの一部として、関連ドメインとの連携によるブランド展開も可能です。",
+      "richSummaryBullets": ["ホテル・宿泊サービスとの直接的な関連性", "日本語入力で自然にアクセスできる利便性", ".comの国際的な信頼性", "Hotel .comセットとしてのブランド展開"],
+      "useCasesTitle": "想定される活用シーン",
+      "useCasesSummary": "ホテルズ.comは、宿泊・旅行業界でブランドを構築したい事業者に適したドメインです。",
+      "useCases": ["ホテル予約・比較プラットフォーム", "旅行代理店のオンライン窓口", "法人向け出張手配サービス", "宿泊施設レビュー・ガイドメディア"],
+      "searchExcerpt": "日本語で直感的に入力できるホテル予約ドメイン。宿泊業界のオンラインブランド構築に最適。",
+      "searchKeywords": "ホテルズ、ホテル、予約、宿泊、hotels、旅行",
+      "seoTitle": "ホテルズ.com — 宿泊ブランドのためのプレミアムドメイン",
+      "seoDescription": "日本語入力対応の.comホテルドメイン。予約サイト・比較サービス・旅行プラットフォームの基盤に。",
+      "ogTitle": "ホテルズ.com｜rePlay Domains",
+      "ogDescription": "宿泊業界のオンラインブランド構築に適したプレミアムドメイン"
+    },
+    {
+      "domainName": "princess.jp",
+      "description": "「プリンセス」というブランドイメージを.jpドメインで直接表現できる、ライフスタイル・ファッション領域に適したドメイン。女性向けブランド、キッズ向けプロダクト、ウェディング、ジュエリーなど、エレガンスや特別感を打ち出したい事業に自然にフィットします。短く覚えやすい英単語で、日本市場でも広く認知されています。",
+      "slug": "princess-jp",
+      "category": "ラグジュアリー",
+      "minimumOffer": 3000000,
+      "featured": true,
+      "domainScript": "latin",
+      "registrationDate": "2008-07-01T00:00:00.000Z",
+      "richSummaryTitle": "エレガンスを表現するドメイン",
+      "richSummaryIntro": "princess.jpは、「プリンセス」という世界共通のブランドイメージを日本の.jpドメインで表現できる資産です。女性向けファッション、ジュエリー、ウェディングサービス、キッズブランドなど、特別感やエレガンスを重視する事業に自然にフィットします。「princess」は日本語としても定着した英単語であり、ターゲット層に直感的に響く名称です。個別販売が可能なドメインのため、単独での活用に適しています。",
+      "richSummaryBullets": ["女性向け・キッズ向けブランドとの高い親和性", "日本語圏でも認知度の高い英単語", ".jpの国内信頼性とブランド力", "個別販売対応ドメイン"],
+      "useCasesTitle": "想定される活用シーン",
+      "useCasesSummary": "princess.jpは、エレガンスや特別感を打ち出したいブランドに適したドメインです。",
+      "useCases": ["女性向けファッション・コスメブランド", "ウェディング・ブライダルサービス", "キッズ向けプロダクト・エンターテインメント", "ジュエリー・アクセサリーブランド"],
+      "searchExcerpt": "エレガンスと特別感を表現する.jpドメイン。ファッション・ウェディング・キッズブランドに最適。",
+      "searchKeywords": "princess、プリンセス、ファッション、ウェディング、ブランド、ジュエリー",
+      "seoTitle": "princess.jp — エレガンスを表現するプレミアムドメイン",
+      "seoDescription": "ファッション・ウェディング・キッズブランドに適した.jpドメイン。プリンセスの世界観をオンラインで。",
+      "ogTitle": "princess.jp｜rePlay Domains",
+      "ogDescription": "エレガンスと特別感を持つプレミアム.jpドメイン"
+    },
+    {
+      "domainName": "honolulu.jp",
+      "description": "ハワイの州都ホノルルの名を持つ.jpドメイン。日本人旅行者向けのハワイ情報サイト、現地ツアー会社、不動産、ウェディングサービスなど、ホノルルと日本をつなぐ事業に適しています。日本人旅行者にとって馴染み深い地名であり、地名ドメインとしてのブランド価値が明確です。",
+      "slug": "honolulu-jp",
+      "category": "旅行・観光",
+      "minimumOffer": 3000000,
+      "featured": true,
+      "domainScript": "latin",
+      "registrationDate": "2023-05-01T00:00:00.000Z",
+      "richSummaryTitle": "ハワイと日本をつなぐドメイン",
+      "richSummaryIntro": "honolulu.jpは、ハワイ・ホノルルの地名を.jpドメインで保有する、地域ブランド資産です。日本人旅行者向けのハワイ情報ポータル、現地ツアー・アクティビティの予約サービス、ハワイ不動産の情報サイト、ウェディング・ハネムーン企画など、ホノルルに関わる事業のオンラインプレゼンスに適しています。Honolulu/Waikikiセットの一部として、関連ドメインとの組み合わせによるブランド展開も想定できます。",
+      "richSummaryBullets": ["日本人旅行者市場との強い関連性", "ハワイ関連事業のブランド基盤", "地名ドメインとしての明確な位置づけ", "Honolulu/Waikikiセットとの連携"],
+      "useCasesTitle": "想定される活用シーン",
+      "useCasesSummary": "honolulu.jpは、ハワイと日本の接点を持つ事業に適したドメインです。",
+      "useCases": ["日本人向けハワイ旅行情報サイト", "現地ツアー・アクティビティ予約", "ハワイ不動産・移住情報", "ウェディング・ハネムーンサービス"],
+      "searchExcerpt": "ハワイ・ホノルルの地名を持つ.jpドメイン。日本人旅行者向けサービスのブランド基盤に。",
+      "searchKeywords": "ホノルル、ハワイ、honolulu、hawaii、旅行、観光、ウェディング",
+      "seoTitle": "honolulu.jp — ハワイと日本をつなぐプレミアムドメイン",
+      "seoDescription": "ハワイ・ホノルルの地名ドメイン。旅行情報、不動産、ウェディングなどハワイ関連事業に。",
+      "ogTitle": "honolulu.jp｜rePlay Domains",
+      "ogDescription": "ハワイと日本をつなぐ地域ブランドドメイン"
+    },
+    {
+      "domainName": "london.jp",
+      "description": "イギリスの首都ロンドンの名を持つ.jpドメイン。日本人向けのロンドン旅行ガイド、留学支援、ビジネス情報、文化交流メディアなど、ロンドンと日本をつなぐ事業のオンラインプレゼンスに適しています。ロンドン.jpとのセットで、日英両方のアクセスパターンをカバーできます。",
+      "slug": "london-jp",
+      "category": "旅行・観光",
+      "minimumOffer": 2500000,
+      "featured": true,
+      "domainScript": "latin",
+      "registrationDate": "2016-12-01T00:00:00.000Z",
+      "richSummaryTitle": "ロンドンと日本の架け橋となるドメイン",
+      "richSummaryIntro": "london.jpは、イギリスの首都ロンドンの名を日本の.jpドメインで保有するブランド資産です。日本人旅行者向けのロンドン情報ポータル、留学・語学研修の支援サイト、日英ビジネス情報、文化交流メディアなど、ロンドンと日本の接点を持つ事業に適しています。IDNペアのロンドン.jpと組み合わせることで、英字入力・日本語入力のどちらからもアクセスできるブランド基盤を構築できます。Londonセットとしてのセット販売となります。",
+      "richSummaryBullets": ["日英文化・ビジネス交流のブランド基盤", "ロンドン.jpとのIDNペアでアクセス網を拡大", "旅行・留学・ビジネスの多角的な活用", "Londonセットとしてのセット販売"],
+      "useCasesTitle": "想定される活用シーン",
+      "useCasesSummary": "london.jpは、ロンドンに関わる日本語圏のオンライン事業に適したドメインです。",
+      "useCases": ["日本人向けロンドン旅行ガイド", "留学・語学研修の案内サイト", "日英ビジネスディレクトリ", "文化交流・イベント情報メディア"],
+      "searchExcerpt": "ロンドンの地名を持つ.jpドメイン。旅行・留学・ビジネスなど日英交流の事業基盤に。",
+      "searchKeywords": "ロンドン、london、イギリス、旅行、留学、ビジネス",
+      "seoTitle": "london.jp — ロンドンと日本をつなぐプレミアムドメイン",
+      "seoDescription": "ロンドンの地名ドメイン。旅行・留学・ビジネス情報など日英交流のオンライン基盤に。",
+      "ogTitle": "london.jp｜rePlay Domains",
+      "ogDescription": "ロンドンと日本の文化・ビジネス交流ドメイン"
+    },
+    {
+      "domainName": "diamonds.jp",
+      "description": "「ダイヤモンド」を英語で表現した.jpドメイン。ジュエリーブランド、婚約指輪・結婚指輪の専門サイト、宝石鑑定サービス、ラグジュアリーギフトなど、高級感と信頼性が求められるオンラインブランドに適しています。短く明快な英単語で、日本市場でも高い認知度を持つドメインです。",
+      "slug": "diamonds-jp",
+      "category": "ラグジュアリー",
+      "minimumOffer": 8000000,
+      "featured": true,
+      "domainScript": "latin",
+      "registrationDate": "2024-01-01T00:00:00.000Z",
+      "richSummaryTitle": "ラグジュアリーブランドのためのドメイン",
+      "richSummaryIntro": "diamonds.jpは、「ダイヤモンド」という普遍的な高級イメージを.jpドメインで表現できるブランド資産です。ジュエリーブランドのECサイト、婚約指輪・結婚指輪の専門サイト、宝石鑑定・買取サービス、ラグジュアリーギフトのオンラインショップなど、高級感と信頼性を重視する事業に適しています。「diamonds」は日本語圏でも広く理解される英単語であり、ブランドの格を名称だけで伝えることができます。Diamondsセットの一部として、関連ドメインとのブランド展開も可能です。",
+      "richSummaryBullets": ["ジュエリー・高級品市場との直接的な関連性", "高級感と信頼性を名称で即座に表現", ".jpの国内ブランド力との組み合わせ", "Diamondsセットとしてのブランド展開"],
+      "useCasesTitle": "想定される活用シーン",
+      "useCasesSummary": "diamonds.jpは、ラグジュアリー市場でオンラインプレゼンスを構築したい事業者に適したドメインです。",
+      "useCases": ["ジュエリーブランドのECサイト", "婚約指輪・結婚指輪の専門サイト", "宝石鑑定・買取サービス", "ラグジュアリーギフトのオンラインショップ"],
+      "searchExcerpt": "ジュエリー・高級品ブランドのための.jpドメイン。婚約指輪・宝石鑑定・ラグジュアリーギフトに。",
+      "searchKeywords": "diamonds、ダイヤモンド、ジュエリー、婚約指輪、宝石、ラグジュアリー",
+      "seoTitle": "diamonds.jp — ラグジュアリーブランドのためのプレミアムドメイン",
+      "seoDescription": "ダイヤモンドの名を持つ.jpドメイン。ジュエリー・婚約指輪・高級品ブランドのオンライン基盤に。",
+      "ogTitle": "diamonds.jp｜rePlay Domains",
+      "ogDescription": "ラグジュアリー市場のオンラインブランドドメイン"
+    }
+  ],
+  "remainingDomains": {
+    "instructions": "Generate content for each domain below. Group by set where applicable. Use the registration dates provided. Match the tone and quality of the 6 examples above.",
+    "bySet": {
+      "Hotel .com Set": [
+        { "domainName": "海外ホテル.com", "registrationDate": "2006-02-02", "minimumOffer": 2000000, "domainScript": "japanese", "note": "Already seeded — enrich content if needed" },
+        { "domainName": "国内ホテル.com", "registrationDate": "2006-02-02", "minimumOffer": 2000000, "domainScript": "japanese" },
+        { "domainName": "ニューヨークホテル.com", "registrationDate": "2006-02-02", "minimumOffer": 1500000, "domainScript": "japanese" },
+        { "domainName": "ハワイホテル.com", "registrationDate": "2006-02-02", "minimumOffer": 1500000, "domainScript": "japanese" }
+      ],
+      "Hotel .jp Set": [
+        { "domainName": "ホテルズ.jp", "registrationDate": "2006-02-03", "minimumOffer": 3000000, "domainScript": "japanese" },
+        { "domainName": "海外ホテル.jp", "registrationDate": "2006-02-02", "minimumOffer": 2200000, "domainScript": "japanese", "note": "Already seeded — enrich content if needed" }
+      ],
+      "芸能 Entertainment Set": [
+        { "domainName": "芸能界.com", "registrationDate": "2005-08-15", "minimumOffer": 5000000, "domainScript": "japanese" },
+        { "domainName": "geinokai.com", "registrationDate": "2004-05-18", "minimumOffer": 1000000, "domainScript": "latin" },
+        { "domainName": "geinoukai.com", "registrationDate": "2004-05-18", "minimumOffer": 1000000, "domainScript": "latin" },
+        { "domainName": "geinojin.com", "registrationDate": "2004-05-18", "minimumOffer": 1000000, "domainScript": "latin" }
+      ],
+      "Dance Set": [
+        { "domainName": "dancer.jp", "registrationDate": "2013-07-01", "minimumOffer": 2000000, "domainScript": "latin" },
+        { "domainName": "ダンサー.jp", "registrationDate": "2017-05-17", "minimumOffer": 2000000, "domainScript": "japanese" },
+        { "domainName": "salsa.jp", "registrationDate": "2012-10-01", "minimumOffer": 2000000, "domainScript": "latin" }
+      ],
+      "Boston Set": [
+        { "domainName": "boston.jp", "note": "Already seeded" },
+        { "domainName": "ボストン.jp", "note": "Already seeded" }
+      ],
+      "Los Angeles Set": [
+        { "domainName": "losangeles.jp", "registrationDate": "2007-07-01", "minimumOffer": 3000000, "domainScript": "latin" },
+        { "domainName": "ロサンゼルス.jp", "registrationDate": "2006-04-17", "minimumOffer": 3000000, "domainScript": "japanese" },
+        { "domainName": "ロス.jp", "registrationDate": "2007-07-01", "minimumOffer": 1500000, "domainScript": "japanese" }
+      ],
+      "Honolulu/Waikiki Set": [
+        { "domainName": "honolulu.jp", "note": "Already seeded" },
+        { "domainName": "ホノルル.jp", "registrationDate": "2006-04-13", "minimumOffer": 2000000, "domainScript": "japanese" },
+        { "domainName": "ワイキキ.jp", "registrationDate": "2006-04-13", "minimumOffer": 2000000, "domainScript": "japanese" }
+      ],
+      "New York City Set": [
+        { "domainName": "newyorkcity.jp", "registrationDate": "2008-07-01", "minimumOffer": 3000000, "domainScript": "latin" },
+        { "domainName": "ニューヨークシティ.jp", "registrationDate": "2006-02-02", "minimumOffer": 3000000, "domainScript": "japanese" }
+      ],
+      "London Set": [
+        { "domainName": "london.jp", "note": "Already seeded" },
+        { "domainName": "ロンドン.jp", "note": "Already seeded" }
+      ],
+      "Diamonds Set": [
+        { "domainName": "diamonds.jp", "note": "Already seeded" },
+        { "domainName": "ダイヤモンド.jp", "registrationDate": "2006-07-01", "minimumOffer": 5000000, "domainScript": "japanese" }
+      ],
+      "Hip-Hop Set": [
+        { "domainName": "hip-hop.jp", "registrationDate": "2007-07-01", "minimumOffer": 2000000, "domainScript": "latin" },
+        { "domainName": "ヒップホップ.jp", "note": "Already seeded" },
+        { "domainName": "hiphopjapan.com", "registrationDate": "1999-12-12", "minimumOffer": 1500000, "domainScript": "latin" }
+      ],
+      "Artist Set": [
+        { "domainName": "artist.jp", "registrationDate": "2017-05-01", "minimumOffer": 2000000, "domainScript": "latin" },
+        { "domainName": "アーティスト.jp", "registrationDate": "2017-05-17", "minimumOffer": 2000000, "domainScript": "japanese" }
+      ],
+      "Singer Set": [
+        { "domainName": "singer.jp", "registrationDate": "2008-12-01", "minimumOffer": 1500000, "domainScript": "latin" },
+        { "domainName": "シンガー.jp", "registrationDate": "2008-12-01", "minimumOffer": 1500000, "domainScript": "japanese" }
+      ],
+      "Rome Set": [
+        { "domainName": "rome.jp", "note": "Already seeded" },
+        { "domainName": "ローマ.jp", "registrationDate": "2006-04-17", "minimumOffer": 1800000, "domainScript": "japanese" }
+      ]
+    },
+    "standalone": [
+      { "domainName": "セール.com", "registrationDate": "2005-09-03", "minimumOffer": 10000000, "domainScript": "japanese", "category": "ラグジュアリー" },
+      { "domainName": "派遣.com", "registrationDate": "2005-09-18", "minimumOffer": 50000000, "domainScript": "japanese" },
+      { "domainName": "レゲエ.com", "registrationDate": "2005-08-14", "minimumOffer": 1500000, "domainScript": "japanese", "category": "音楽・エンターテインメント" },
+      { "domainName": "ベリーダンス.com", "registrationDate": "2005-08-14", "minimumOffer": 1000000, "domainScript": "japanese" },
+      { "domainName": "激安旅行.com", "registrationDate": "2006-02-04", "minimumOffer": 2000000, "domainScript": "japanese", "category": "旅行・観光" },
+      { "domainName": "sneakers.jp", "registrationDate": "2008-08-01", "minimumOffer": 2000000, "domainScript": "latin" },
+      { "domainName": "paradise.jp", "note": "Already seeded" }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+Read and follow all instructions in docs/plans/active/kickoff-prompt.md

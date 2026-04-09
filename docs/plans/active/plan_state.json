@@ -1,0 +1,77 @@
+{
+  "plan_id": "M27",
+  "framework_version": "0.6.2-patch-3",
+  "mode": "guided",
+  "change_type": "config-change",
+  "current_checkpoint": "D",
+  "checkpoints": {
+    "A": {
+      "status": "complete",
+      "required_skills": []
+    },
+    "B": {
+      "status": "complete",
+      "required_skills": []
+    },
+    "C": {
+      "status": "complete",
+      "required_skills": ["frontend-design"]
+    },
+    "D": {
+      "status": "complete",
+      "required_skills": ["frontend-design", "verify"]
+    }
+  },
+  "allowed_files": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "tsconfig.json",
+    "next.config.js",
+    "src/payload.config.ts",
+    "src/payload-types.ts",
+    "src/utilities/generateSlug.ts",
+    "src/utilities/getMediaUrl.ts",
+    "src/middleware.ts",
+    "src/proxy.ts",
+    "src/plugins/index.ts",
+    "src/Header/hooks/*",
+    "src/collections/*/hooks/*",
+    "src/globals/*/hooks/*",
+    "src/globals/*.ts",
+    "src/hooks/*",
+    "src/components/BeforeDomainsDashboard/*",
+    "src/components/BeforeDashboard/*",
+    "src/components/Media/ImageMedia/*",
+    "src/components/dashboard/*",
+    "src/app/(payload)/**",
+    "src/endpoints/seed/*",
+    "docs/plans/active/*",
+    "docs/handoff/active/*",
+    "docs/PROJECT_STATUS.md",
+    "docs/COMPONENTS.md",
+    "docs/KNOWN_ISSUES.md",
+    "docs/CHANGELOG.md"
+  ],
+  "flags": {
+    "schema_change": false,
+    "seed_change": false,
+    "destructive": false,
+    "framework_change": false
+  },
+  "required_reviewers": [
+    "screenshot-reviewer",
+    "design-director",
+    "style-guide-enforcer",
+    "framework-auditor"
+  ],
+  "reviewer_results": [
+    {"reviewer": "style-guide-enforcer", "checkpoint": "D", "status": "pass", "reason": "All <a> tags exempt (tel: protocol, admin panel). No <img> or next/router violations."},
+    {"reviewer": "framework-auditor", "checkpoint": "D", "status": "warn", "reason": "C-6 noted as incomplete (beforeDashboard kept) — developer-approved correction."},
+    {"reviewer": "screenshot-reviewer", "checkpoint": "D", "status": "skipped", "reason": "Admin panel widgets — developer provided screenshots directly."},
+    {"reviewer": "design-director", "checkpoint": "D", "status": "skipped", "reason": "Admin panel — not frontend design scope."}
+  ],
+  "developer_corrections": [
+    {"at": "C", "note": "Keep beforeDashboard panels (Seed, Import, Edit buttons) — do not remove admin functionality"}
+  ],
+  "handoff_required": true
+}

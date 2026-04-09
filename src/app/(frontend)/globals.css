@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@config '../../../tailwind.config.mjs';
+@plugin "@tailwindcss/typography";
+
+/* Brand color fallbacks — overridden by SiteSettings values injected on <html> */
+:root {
+  --brand-primary: #1B243F;
+  --brand-alt: #F0A848;
+}
+
+@theme inline {
+  /* Brand tokens (dynamic via SiteSettings → layout → CSS vars) */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-alt: var(--brand-alt);
+
+  --color-background: 248 250 252; /* slate-50 for better contrast */
+  --color-foreground: 223 26% 12%;
+
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 223 26% 12%;
+
+  --color-surface: 241 245 249; /* slate-100 */
+  --color-surface-foreground: 224 21% 20%;
+
+  --color-primary: 227 40% 20%; /* #1B243F */
+  --color-primary-foreground: 0 0% 100%;
+
+  --color-alt: 37 86% 61%; /* #F0A848 */
+  --color-alt-foreground: 227 40% 20%;
+
+  --color-muted: 220 14% 91%;
+  --color-muted-foreground: 223 16% 36%;
+
+  --color-accent: 217 16% 90%;
+  --color-accent-foreground: 227 40% 20%;
+
+  --color-border: 226 232 240; /* slate-200 for lighter borders */
+  --color-input: 220 17% 92%;
+  --color-ring: 227 40% 20%;
+
+  --color-success: 150 44% 42%;
+  --color-warning: 37 86% 61%;
+  --color-error: 2 83% 59%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: revert;
+    font-weight: inherit;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  * {
+    border-color: hsl(var(--color-border));
+  }
+}
+
+@layer utilities {
+  .site-container {
+    width: min(100%, 80rem);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+  }
+
+  /* BudouX relief: prevents staircase line-break effect in narrow grid columns */
+  .budoux-wrap {
+    overflow-wrap: break-word;
+  }
+
+  /* Color utilities for primary brand color */
+  .bg-primary {
+    background-color: hsl(var(--color-primary));
+  }
+  .text-primary {
+    color: hsl(var(--color-primary));
+  }
+  .border-primary {
+    border-color: hsl(var(--color-primary));
+  }
+  .text-primary-foreground {
+    color: hsl(var(--color-primary-foreground));
+  }
+
+  /* Color utilities for alt brand color */
+  .bg-alt {
+    background-color: hsl(var(--color-alt));
+  }
+  .text-alt {
+    color: hsl(var(--color-alt));
+  }
+  .border-alt {
+    border-color: hsl(var(--color-alt));
+  }
+
+  /* Hover state utilities for primary */
+  .hover\:bg-primary:hover {
+    background-color: hsl(var(--color-primary));
+  }
+  .hover\:text-primary:hover {
+    color: hsl(var(--color-primary));
+  }
+  .hover\:border-primary:hover {
+    border-color: hsl(var(--color-primary));
+  }
+  .hover\:text-primary-foreground:hover {
+    color: hsl(var(--color-primary-foreground));
+  }
+
+  /* Hover state utilities for alt */
+  .hover\:bg-alt:hover {
+    background-color: hsl(var(--color-alt));
+  }
+  .hover\:bg-alt\/90:hover {
+    background-color: hsl(var(--color-alt) / 0.9);
+  }
+  .hover\:bg-alt\/10:hover {
+    background-color: hsl(var(--color-alt) / 0.1);
+  }
+  .hover\:text-alt:hover {
+    color: hsl(var(--color-alt));
+  }
+  .hover\:border-alt:hover {
+    border-color: hsl(var(--color-alt));
+  }
+  .group:hover .group-hover\:text-alt {
+    color: hsl(var(--color-alt));
+  }
+
+  /* Transparent border utilities for hover states */
+  .hover\:border-transparent:hover {
+    border-color: transparent;
+  }
+
+  /* Radix UI Navigation Menu animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOutToRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+  }
+
+  .animate-out {
+    animation-duration: 150ms;
+    animation-fill-mode: forwards;
+  }
+
+  .fade-in-0 {
+    animation-name: fadeIn;
+  }
+
+  .fade-out-0 {
+    animation-name: fadeOut;
+  }
+
+  .slide-in-from-right {
+    animation-name: slideInFromRight;
+  }
+
+  .slide-out-to-right {
+    animation-name: slideOutToRight;
+  }
+}
