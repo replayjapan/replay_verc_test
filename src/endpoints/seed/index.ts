@@ -75,7 +75,9 @@ export const seed = async ({
   )
 
   await Promise.all(
-    collections.map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
+    collections
+      .filter((collection) => collection !== 'media')
+      .map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
   )
 
   // payload.db.deleteMany() is a raw DB adapter call — it does NOT delete physical files.
