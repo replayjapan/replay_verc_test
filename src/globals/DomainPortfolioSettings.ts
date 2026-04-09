@@ -138,7 +138,7 @@ export const DomainPortfolioSettings: GlobalConfig = {
               ],
             },
             {
-              name: 'defaultContent',
+              name: 'defaults',
               type: 'group',
               fields: [
                 {

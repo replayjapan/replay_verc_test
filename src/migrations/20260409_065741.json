@@ -33839,8 +33839,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.domains_settings_default_content_rich_summary_bullets": {
-      "name": "domains_settings_default_content_rich_summary_bullets",
+    "public.domains_settings_defaults_rich_summary_bullets": {
+      "name": "domains_settings_defaults_rich_summary_bullets",
       "schema": "",
       "columns": {
         "_order": {
@@ -33869,8 +33869,8 @@
         }
       },
       "indexes": {
-        "domains_settings_default_content_rich_summary_bullets_order_idx": {
-          "name": "domains_settings_default_content_rich_summary_bullets_order_idx",
+        "domains_settings_defaults_rich_summary_bullets_order_idx": {
+          "name": "domains_settings_defaults_rich_summary_bullets_order_idx",
           "columns": [
             {
               "expression": "_order",
@@ -33884,8 +33884,8 @@
           "method": "btree",
           "with": {}
         },
-        "domains_settings_default_content_rich_summary_bullets_parent_id_idx": {
-          "name": "domains_settings_default_content_rich_summary_bullets_parent_id_idx",
+        "domains_settings_defaults_rich_summary_bullets_parent_id_idx": {
+          "name": "domains_settings_defaults_rich_summary_bullets_parent_id_idx",
           "columns": [
             {
               "expression": "_parent_id",
@@ -33901,9 +33901,9 @@
         }
       },
       "foreignKeys": {
-        "domains_settings_default_content_rich_summary_bullets_parent_id_fk": {
-          "name": "domains_settings_default_content_rich_summary_bullets_parent_id_fk",
-          "tableFrom": "domains_settings_default_content_rich_summary_bullets",
+        "domains_settings_defaults_rich_summary_bullets_parent_id_fk": {
+          "name": "domains_settings_defaults_rich_summary_bullets_parent_id_fk",
+          "tableFrom": "domains_settings_defaults_rich_summary_bullets",
           "tableTo": "domains_settings",
           "columnsFrom": [
             "_parent_id"
@@ -33921,8 +33921,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.domains_settings_default_content_use_cases": {
-      "name": "domains_settings_default_content_use_cases",
+    "public.domains_settings_defaults_use_cases": {
+      "name": "domains_settings_defaults_use_cases",
       "schema": "",
       "columns": {
         "_order": {
@@ -33951,8 +33951,8 @@
         }
       },
       "indexes": {
-        "domains_settings_default_content_use_cases_order_idx": {
-          "name": "domains_settings_default_content_use_cases_order_idx",
+        "domains_settings_defaults_use_cases_order_idx": {
+          "name": "domains_settings_defaults_use_cases_order_idx",
           "columns": [
             {
               "expression": "_order",
@@ -33966,8 +33966,8 @@
           "method": "btree",
           "with": {}
         },
-        "domains_settings_default_content_use_cases_parent_id_idx": {
-          "name": "domains_settings_default_content_use_cases_parent_id_idx",
+        "domains_settings_defaults_use_cases_parent_id_idx": {
+          "name": "domains_settings_defaults_use_cases_parent_id_idx",
           "columns": [
             {
               "expression": "_parent_id",
@@ -33983,9 +33983,9 @@
         }
       },
       "foreignKeys": {
-        "domains_settings_default_content_use_cases_parent_id_fk": {
-          "name": "domains_settings_default_content_use_cases_parent_id_fk",
-          "tableFrom": "domains_settings_default_content_use_cases",
+        "domains_settings_defaults_use_cases_parent_id_fk": {
+          "name": "domains_settings_defaults_use_cases_parent_id_fk",
+          "tableFrom": "domains_settings_defaults_use_cases",
           "tableTo": "domains_settings",
           "columnsFrom": [
             "_parent_id"
@@ -37694,6 +37694,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "fab460a3-ecdd-4a4c-bb9b-5deea47570c7",
+  "id": "2e2cf06f-5403-42b5-acf5-8a211c90af64",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }

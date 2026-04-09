@@ -3364,14 +3364,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"created_at" timestamp(3) with time zone
   );
   
-  CREATE TABLE "domains_settings_default_content_rich_summary_bullets" (
+  CREATE TABLE "domains_settings_defaults_rich_summary_bullets" (
   	"_order" integer NOT NULL,
   	"_parent_id" integer NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"bullet" varchar NOT NULL
   );
   
-  CREATE TABLE "domains_settings_default_content_use_cases" (
+  CREATE TABLE "domains_settings_defaults_use_cases" (
   	"_order" integer NOT NULL,
   	"_parent_id" integer NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
@@ -3816,8 +3816,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   ALTER TABLE "site_settings" ADD CONSTRAINT "site_settings_logo_id_media_id_fk" FOREIGN KEY ("logo_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   ALTER TABLE "site_settings" ADD CONSTRAINT "site_settings_default_og_image_id_media_id_fk" FOREIGN KEY ("default_og_image_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   ALTER TABLE "cta_settings_groups" ADD CONSTRAINT "cta_settings_groups_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."cta_settings"("id") ON DELETE cascade ON UPDATE no action;
-  ALTER TABLE "domains_settings_default_content_rich_summary_bullets" ADD CONSTRAINT "domains_settings_default_content_rich_summary_bullets_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."domains_settings"("id") ON DELETE cascade ON UPDATE no action;
-  ALTER TABLE "domains_settings_default_content_use_cases" ADD CONSTRAINT "domains_settings_default_content_use_cases_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."domains_settings"("id") ON DELETE cascade ON UPDATE no action;
+  ALTER TABLE "domains_settings_defaults_rich_summary_bullets" ADD CONSTRAINT "domains_settings_defaults_rich_summary_bullets_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."domains_settings"("id") ON DELETE cascade ON UPDATE no action;
+  ALTER TABLE "domains_settings_defaults_use_cases" ADD CONSTRAINT "domains_settings_defaults_use_cases_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."domains_settings"("id") ON DELETE cascade ON UPDATE no action;
   ALTER TABLE "domains_settings" ADD CONSTRAINT "domains_settings_hero_image_id_media_id_fk" FOREIGN KEY ("hero_image_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   ALTER TABLE "domains_settings" ADD CONSTRAINT "domains_settings_default_image_id_media_id_fk" FOREIGN KEY ("default_image_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   ALTER TABLE "domains_settings" ADD CONSTRAINT "domains_settings_contact_form_form_template_id_forms_id_fk" FOREIGN KEY ("contact_form_form_template_id") REFERENCES "public"."forms"("id") ON DELETE set null ON UPDATE no action;
@@ -4550,10 +4550,10 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "cta_settings_groups_order_idx" ON "cta_settings_groups" USING btree ("_order");
   CREATE INDEX "cta_settings_groups_parent_id_idx" ON "cta_settings_groups" USING btree ("_parent_id");
   CREATE UNIQUE INDEX "cta_settings_groups_slug_idx" ON "cta_settings_groups" USING btree ("slug");
-  CREATE INDEX "domains_settings_default_content_rich_summary_bullets_order_idx" ON "domains_settings_default_content_rich_summary_bullets" USING btree ("_order");
-  CREATE INDEX "domains_settings_default_content_rich_summary_bullets_parent_id_idx" ON "domains_settings_default_content_rich_summary_bullets" USING btree ("_parent_id");
-  CREATE INDEX "domains_settings_default_content_use_cases_order_idx" ON "domains_settings_default_content_use_cases" USING btree ("_order");
-  CREATE INDEX "domains_settings_default_content_use_cases_parent_id_idx" ON "domains_settings_default_content_use_cases" USING btree ("_parent_id");
+  CREATE INDEX "domains_settings_defaults_rich_summary_bullets_order_idx" ON "domains_settings_defaults_rich_summary_bullets" USING btree ("_order");
+  CREATE INDEX "domains_settings_defaults_rich_summary_bullets_parent_id_idx" ON "domains_settings_defaults_rich_summary_bullets" USING btree ("_parent_id");
+  CREATE INDEX "domains_settings_defaults_use_cases_order_idx" ON "domains_settings_defaults_use_cases" USING btree ("_order");
+  CREATE INDEX "domains_settings_defaults_use_cases_parent_id_idx" ON "domains_settings_defaults_use_cases" USING btree ("_parent_id");
   CREATE INDEX "domains_settings_hero_image_idx" ON "domains_settings" USING btree ("hero_image_id");
   CREATE INDEX "domains_settings_default_image_idx" ON "domains_settings" USING btree ("default_image_id");
   CREATE INDEX "domains_settings_contact_form_contact_form_form_template_idx" ON "domains_settings" USING btree ("contact_form_form_template_id");
@@ -4767,8 +4767,8 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TABLE "site_settings" CASCADE;
   DROP TABLE "cta_settings_groups" CASCADE;
   DROP TABLE "cta_settings" CASCADE;
-  DROP TABLE "domains_settings_default_content_rich_summary_bullets" CASCADE;
-  DROP TABLE "domains_settings_default_content_use_cases" CASCADE;
+  DROP TABLE "domains_settings_defaults_rich_summary_bullets" CASCADE;
+  DROP TABLE "domains_settings_defaults_use_cases" CASCADE;
   DROP TABLE "domains_settings" CASCADE;
   DROP TABLE "services_settings" CASCADE;
   DROP TABLE "videos_settings" CASCADE;

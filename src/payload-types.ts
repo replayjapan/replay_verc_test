@@ -5477,7 +5477,7 @@ export interface DomainsSetting {
      */
     showDecimals?: boolean | null;
   };
-  defaultContent?: {
+  defaults?: {
     richSummaryBullets?:
       | {
           bullet: string;
@@ -6046,7 +6046,7 @@ export interface DomainsSettingsSelect<T extends boolean = true> {
         code?: T;
         showDecimals?: T;
       };
-  defaultContent?:
+  defaults?:
     | T
     | {
         richSummaryBullets?:

@@ -98,14 +98,16 @@ const extractUseCases = (
 }
 
 export const transformPayloadDomainSettings = (settings: DomainsSetting | null): DomainSettings => {
-  const defaultBullets = Array.isArray(settings?.defaultContent?.richSummaryBullets)
-    ? settings?.defaultContent?.richSummaryBullets
+  const defaults = settings?.defaults
+
+  const defaultBullets = Array.isArray(defaults?.richSummaryBullets)
+    ? defaults?.richSummaryBullets
         .map((item) => (typeof item?.bullet === 'string' ? item.bullet : undefined))
         .filter((b): b is string => Boolean(b))
     : []
 
-  const defaultUseCases = Array.isArray(settings?.defaultContent?.useCases)
-    ? settings?.defaultContent?.useCases
+  const defaultUseCases = Array.isArray(defaults?.useCases)
+    ? defaults?.useCases
         .map((item) => (typeof item?.useCase === 'string' ? item.useCase : undefined))
         .filter((u): u is string => Boolean(u))
     : []
