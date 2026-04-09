@@ -1771,42 +1771,58 @@ export async function seedDomains(
   for (const d of domains) {
     const ascii = toASCII(d.domainName)
     const extension = d.domainName.split('.').pop()
+    const categoryId = categoryMap.get(d.category)
+    const domainData = {
+      domainName: d.domainName,
+      domainASCII: ascii,
+      description: d.description,
+      extension,
+      domainStatus: d.status,
+      minimumOffer: d.minimumOffer,
+      featured: d.featured,
+      registrationDate: d.registrationDate,
+      _status: 'published' as const,
+      slugOverride: d.slug,
+      slugLock: false,
+      domainScript: d.domainScript,
+      ...(d.idnDisplay ? { domainUnicode: d.idnDisplay } : {}),
+      ...(d.featuredImage ? { featuredImage: d.featuredImage } : {}),
+      ...(categoryId ? { category: categoryId } : {}),
+      ...(d.richSummaryTitle ? { richSummaryTitle: d.richSummaryTitle } : {}),
+      ...(d.richSummaryIntro ? { richSummaryIntro: toLexicalJSON(d.richSummaryIntro) } : {}),
+      ...(d.richSummaryBullets.length
+        ? { richSummaryBullets: d.richSummaryBullets.filter(Boolean).map((bullet) => ({ bullet })) }
+        : {}),
+      ...(d.useCasesTitle ? { useCasesTitle: d.useCasesTitle } : {}),
+      ...(d.useCasesSummary ? { useCasesSummary: toLexicalJSON(d.useCasesSummary) } : {}),
+      ...(d.useCases.length
+        ? { useCases: d.useCases.filter(Boolean).map((useCase) => ({ useCase })) }
+        : {}),
+      searchExcerpt: d.searchExcerpt ?? d.description,
+      searchKeywords: d.searchKeywords ?? d.domainName,
+      meta: {
+        title: d.seoTitle,
+        description: d.seoDescription,
+        ogTitle: d.ogTitle,
+        ogDescription: d.ogDescription,
+      },
+    }
+
+    payload.logger.info(
+      `[seed:domain] ${d.domainName} slug=${d.slug} featuredImage=${String(
+        d.featuredImage,
+      )} category=${String(categoryId)} metaImage=omitted ogImage=omitted richSummaryBulletsUndefined=${String(
+        !d.richSummaryBullets,
+      )} useCasesUndefined=${String(!d.useCases)} statusKey=${String(
+        'status' in domainData,
+      )} domainStatusKey=${String('domainStatus' in domainData)}`,
+    )
 
     await payload.create({
       collection: 'domains',
       depth: 0,
       context: { disableRevalidate: true },
-      data: {
-        domainName: d.domainName,
-        domainASCII: ascii,
-        description: d.description,
-        extension,
-        domainStatus: d.status,
-        minimumOffer: d.minimumOffer,
-        featured: d.featured,
-        registrationDate: d.registrationDate,
-        _status: 'published',
-        slugOverride: d.slug,
-        slugLock: false,
-        domainScript: d.domainScript,
-        ...(d.idnDisplay ? { domainUnicode: d.idnDisplay } : {}),
-        ...(d.featuredImage ? { featuredImage: d.featuredImage } : {}),
-        category: categoryMap.get(d.category),
-        richSummaryTitle: d.richSummaryTitle,
-        richSummaryIntro: toLexicalJSON(d.richSummaryIntro),
-        richSummaryBullets: d.richSummaryBullets.map((bullet) => ({ bullet })),
-        useCasesTitle: d.useCasesTitle,
-        useCasesSummary: toLexicalJSON(d.useCasesSummary),
-        useCases: d.useCases.map((useCase) => ({ useCase })),
-        searchExcerpt: d.searchExcerpt ?? d.description,
-        searchKeywords: d.searchKeywords ?? d.domainName,
-        meta: {
-          title: d.seoTitle,
-          description: d.seoDescription,
-          ogTitle: d.ogTitle,
-          ogDescription: d.ogDescription,
-        },
-      },
+      data: domainData,
     })
   }
 
