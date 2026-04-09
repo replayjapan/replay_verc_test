@@ -278,7 +278,7 @@ export const seed = async ({
     buffer: readLocalFile(path.join(imageFixDir, file)),
   }))
 
-  const catalogDocs = []
+  const catalogDocs: Array<{ id: number | string }> = []
   for (const { alt, buffer } of catalogBuffers) {
     const doc = await payload.create({ collection: 'media', data: { alt }, file: buffer })
     catalogDocs.push(doc)
