@@ -47,7 +47,7 @@ type DomainImportData = {
   domainASCII: string
   description: string
   extension?: string
-  status: Domain['status']
+  domainStatus: Domain['domainStatus']
   minimumOffer: number
   featured: boolean
   registrationDate: string
@@ -187,7 +187,7 @@ const buildDomainData = async (
     domainASCII: ascii,
     description: row.summary,
     extension,
-    status: (row.availability as Domain['status']) || 'open',
+    domainStatus: (row.availability as Domain['domainStatus']) || 'open',
     minimumOffer: parseCurrency(row.minOfferPrice),
     featured: parseBoolean(row.premium),
     registrationDate: row.registrationDate

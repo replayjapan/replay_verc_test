@@ -276,7 +276,7 @@ export async function editDomainsFromCSV({
       }
 
       if (normalizedRow.status) {
-        updateData.status = normalizedRow.status as Domain['status']
+        updateData.domainStatus = normalizedRow.status as Domain['domainStatus']
       }
 
       const featured = parseBoolean(normalizedRow.featured)

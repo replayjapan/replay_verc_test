@@ -30,7 +30,7 @@ export default async function DomainPortfolioWidget({ req }: WidgetServerProps) 
   let totalValue = 0
 
   for (const d of docs) {
-    const s = d.status
+    const s = d.domainStatus
     statusCounts[s] = (statusCounts[s] || 0) + 1
     if (d.minimumOffer && typeof d.minimumOffer === 'number') totalValue += d.minimumOffer
   }

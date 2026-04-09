@@ -23,7 +23,7 @@ export const Domains: CollectionConfig = {
     update: authenticated,
   },
   admin: {
-    defaultColumns: ['domainName', 'slug', 'featured', 'status', 'minimumOffer', 'updatedAt'],
+    defaultColumns: ['domainName', 'slug', 'featured', 'domainStatus', 'minimumOffer', 'updatedAt'],
     group: 'Domain Portfolio',
     useAsTitle: 'domainName',
   },
@@ -198,7 +198,8 @@ export const Domains: CollectionConfig = {
               },
             },
             {
-              name: 'status',
+              name: 'domainStatus',
+              label: 'Status',
               type: 'select',
               required: true,
               defaultValue: 'open',

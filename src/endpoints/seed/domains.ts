@@ -1781,7 +1781,7 @@ export async function seedDomains(
         domainASCII: ascii,
         description: d.description,
         extension,
-        status: d.status,
+        domainStatus: d.status,
         minimumOffer: d.minimumOffer,
         featured: d.featured,
         registrationDate: d.registrationDate,

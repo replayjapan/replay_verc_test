@@ -174,8 +174,10 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum_posts_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum__posts_v_version_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum_domains_domain_script" AS ENUM('latin', 'japanese');
+  CREATE TYPE "public"."enum_domains_domain_status" AS ENUM('open', 'not_available', 'sold', 'pending');
   CREATE TYPE "public"."enum_domains_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum__domains_v_version_domain_script" AS ENUM('latin', 'japanese');
+  CREATE TYPE "public"."enum__domains_v_version_domain_status" AS ENUM('open', 'not_available', 'sold', 'pending');
   CREATE TYPE "public"."enum__domains_v_version_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum_domain_sets_policy" AS ENUM('bundle_only', 'preferred_bundle', 'allow_individual');
   CREATE TYPE "public"."enum_domain_inquiries_budget" AS ENUM('under_100k', '100k_300k', '300k_500k', '500k_1m', 'over_1m');
@@ -1829,7 +1831,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"domain_unicode" varchar,
   	"extension" varchar,
   	"domain_script" "enum_domains_domain_script" DEFAULT 'latin',
-  	"status" "enum_domains_status" DEFAULT 'open',
+  	"domain_status" "enum_domains_domain_status" DEFAULT 'open',
   	"minimum_offer" numeric,
   	"registration_date" timestamp(3) with time zone,
   	"featured" boolean DEFAULT false,
@@ -1882,7 +1884,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"version_domain_unicode" varchar,
   	"version_extension" varchar,
   	"version_domain_script" "enum__domains_v_version_domain_script" DEFAULT 'latin',
-  	"version_status" "enum__domains_v_version_status" DEFAULT 'open',
+  	"version_domain_status" "enum__domains_v_version_domain_status" DEFAULT 'open',
   	"version_minimum_offer" numeric,
   	"version_registration_date" timestamp(3) with time zone,
   	"version_featured" boolean DEFAULT false,
@@ -4947,8 +4949,10 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_posts_status";
   DROP TYPE "public"."enum__posts_v_version_status";
   DROP TYPE "public"."enum_domains_domain_script";
+  DROP TYPE "public"."enum_domains_domain_status";
   DROP TYPE "public"."enum_domains_status";
   DROP TYPE "public"."enum__domains_v_version_domain_script";
+  DROP TYPE "public"."enum__domains_v_version_domain_status";
   DROP TYPE "public"."enum__domains_v_version_status";
   DROP TYPE "public"."enum_domain_sets_policy";
   DROP TYPE "public"."enum_domain_inquiries_budget";

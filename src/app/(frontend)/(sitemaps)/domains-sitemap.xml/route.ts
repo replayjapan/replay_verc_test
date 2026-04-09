@@ -20,7 +20,7 @@ const getDomainsSitemap = unstable_cache(
         _status: {
           equals: 'published',
         },
-        status: {
+        domainStatus: {
           not_equals: 'not_available',
         },
         'meta.noIndex': {

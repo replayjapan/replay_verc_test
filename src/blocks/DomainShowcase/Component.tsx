@@ -51,7 +51,7 @@ export const DomainShowcaseBlock: React.FC<DomainShowcaseBlockProps> = async ({
       limit: limitFromProps || 6,
       sort: '-featured',
       where: {
-        status: { equals: 'open' },
+        domainStatus: { equals: 'open' },
         _status: { equals: 'published' },
         featured: { equals: true },
       },
@@ -63,7 +63,7 @@ export const DomainShowcaseBlock: React.FC<DomainShowcaseBlockProps> = async ({
     )
 
     const where: Where = {
-      status: { equals: 'open' },
+      domainStatus: { equals: 'open' },
       _status: { equals: 'published' },
     }
 
@@ -108,7 +108,7 @@ export const DomainShowcaseBlock: React.FC<DomainShowcaseBlockProps> = async ({
       id: domain.id,
       domainName: domain.domainName,
       category,
-      status: domain.status as DomainStatus,
+      status: domain.domainStatus as DomainStatus,
       minimumOffer: domain.minimumOffer,
       imageUrl: featuredImage,
       href: `/domains/${domain.slug}`,

@@ -90,7 +90,7 @@ export default async function DomainsPage({ searchParams }: PageProps) {
   }
 
   if (status && ['open', 'not_available', 'sold', 'pending'].includes(status)) {
-    where.status = {
+    where.domainStatus = {
       equals: status,
     }
   }

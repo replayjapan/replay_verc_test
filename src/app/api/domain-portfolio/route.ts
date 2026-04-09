@@ -55,7 +55,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<DomainsApi
     }
 
     if (status && ['open', 'not_available', 'sold', 'pending'].includes(status)) {
-      where.status = {
+      where.domainStatus = {
         equals: status,
       }
     }

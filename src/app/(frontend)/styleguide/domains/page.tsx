@@ -52,7 +52,7 @@ export default async function StyleguideDomainsPage() {
                     </code>
                   </td>
                   <td className="py-2 pr-4">{domain.featured ? 'Yes' : 'No'}</td>
-                  <td className="py-2 pr-4">{domain.status}</td>
+                  <td className="py-2 pr-4">{domain.domainStatus}</td>
                   <td className="py-2 pr-4 text-right tabular-nums">
                     {typeof domain.minimumOffer === 'number'
                       ? `¥${domain.minimumOffer.toLocaleString()}`

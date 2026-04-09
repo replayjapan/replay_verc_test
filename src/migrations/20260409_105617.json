@@ -16234,9 +16234,9 @@
           "notNull": false,
           "default": "'latin'"
         },
-        "status": {
-          "name": "status",
-          "type": "enum_domains_status",
+        "domain_status": {
+          "name": "domain_status",
+          "type": "enum_domains_domain_status",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": false,
@@ -16814,9 +16814,9 @@
           "notNull": false,
           "default": "'latin'"
         },
-        "version_status": {
-          "name": "version_status",
-          "type": "enum__domains_v_version_status",
+        "version_domain_status": {
+          "name": "version_domain_status",
+          "type": "enum__domains_v_version_domain_status",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": false,
@@ -36649,6 +36649,16 @@
         "japanese"
       ]
     },
+    "public.enum_domains_domain_status": {
+      "name": "enum_domains_domain_status",
+      "schema": "public",
+      "values": [
+        "open",
+        "not_available",
+        "sold",
+        "pending"
+      ]
+    },
     "public.enum_domains_status": {
       "name": "enum_domains_status",
       "schema": "public",
@@ -36663,6 +36673,16 @@
       "values": [
         "latin",
         "japanese"
+      ]
+    },
+    "public.enum__domains_v_version_domain_status": {
+      "name": "enum__domains_v_version_domain_status",
+      "schema": "public",
+      "values": [
+        "open",
+        "not_available",
+        "sold",
+        "pending"
       ]
     },
     "public.enum__domains_v_version_status": {
@@ -37694,6 +37714,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "2e2cf06f-5403-42b5-acf5-8a211c90af64",
+  "id": "fc388d4b-d689-43da-b456-e77640dabfaf",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }

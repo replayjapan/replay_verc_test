@@ -176,7 +176,7 @@ export const normalizePayloadDomain = (
     category: mapCategory(domain.category as PayloadDomainCategory | string | null | undefined),
     extension: domain.extension ?? undefined,
     domainScript: domain.domainScript ?? undefined,
-    status: domain.status || 'open',
+    status: domain.domainStatus || 'open',
     minimumOffer: domain.minimumOffer ?? 0,
     registrationDate: domain.registrationDate ?? undefined,
     featured: Boolean(domain.featured),

@@ -1,6 +1,6 @@
 import type { Domain as PayloadDomain, DomainCategory as PayloadDomainCategory, Media } from '@/payload-types'
 
-export type DomainStatus = Exclude<PayloadDomain['status'], null | undefined>
+export type DomainStatus = Exclude<PayloadDomain['domainStatus'], null | undefined>
 
 export interface DomainCategory {
   id: string | number

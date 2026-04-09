@@ -803,7 +803,7 @@ export interface Domain {
    * Script used in the domain name — affects display formatting.
    */
   domainScript?: ('latin' | 'japanese') | null;
-  status: 'open' | 'not_available' | 'sold' | 'pending';
+  domainStatus: 'open' | 'not_available' | 'sold' | 'pending';
   /**
    * Minimum acceptable offer used in pricing displays and inquiry forms.
    */
@@ -4224,7 +4224,7 @@ export interface DomainsSelect<T extends boolean = true> {
   domainUnicode?: T;
   extension?: T;
   domainScript?: T;
-  status?: T;
+  domainStatus?: T;
   minimumOffer?: T;
   registrationDate?: T;
   featured?: T;
