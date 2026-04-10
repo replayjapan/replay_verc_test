@@ -18,19 +18,21 @@ export const dynamic = 'force-static'
 export const revalidate = 600
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const portfolios = await payload.find({
-    collection: 'portfolios',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  return portfolios.docs.map(({ slug }) => ({ slug }))
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const portfolios = await payload.find({
+  //   collection: 'portfolios',
+  //   draft: false,
+  //   limit: 1000,
+  //   overrideAccess: false,
+  //   pagination: false,
+  //   select: {
+  //     slug: true,
+  //   },
+  // })
+  //
+  // return portfolios.docs.map(({ slug }) => ({ slug }))
+  return []
 }
 
 type Args = {

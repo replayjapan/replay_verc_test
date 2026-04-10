@@ -45,19 +45,21 @@ function getVideoEmbedUrl(url: string): string | null {
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const videos = await payload.find({
-    collection: 'videos',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  return videos.docs.map(({ slug }) => ({ slug }))
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const videos = await payload.find({
+  //   collection: 'videos',
+  //   draft: false,
+  //   limit: 1000,
+  //   overrideAccess: false,
+  //   pagination: false,
+  //   select: {
+  //     slug: true,
+  //   },
+  // })
+  //
+  // return videos.docs.map(({ slug }) => ({ slug }))
+  return []
 }
 
 type Args = {

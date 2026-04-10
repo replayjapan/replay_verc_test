@@ -21,19 +21,21 @@ import { TakeawayCallout } from '@/components/shared/TakeawayCallout'
 import { formatAuthors } from '@/utilities/formatAuthors'
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const posts = await payload.find({
-    collection: 'posts',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  return posts.docs.map(({ slug }) => ({ slug }))
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const posts = await payload.find({
+  //   collection: 'posts',
+  //   draft: false,
+  //   limit: 1000,
+  //   overrideAccess: false,
+  //   pagination: false,
+  //   select: {
+  //     slug: true,
+  //   },
+  // })
+  //
+  // return posts.docs.map(({ slug }) => ({ slug }))
+  return []
 }
 
 type Args = {

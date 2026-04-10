@@ -16,27 +16,29 @@ import { getServerSideURL } from '@/utilities/getURL'
 import type { SiteSetting, Media } from '@/payload-types'
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const pages = await payload.find({
-    collection: 'pages',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
-
-  return params
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const pages = await payload.find({
+  //   collection: 'pages',
+  //   draft: false,
+  //   limit: 1000,
+  //   overrideAccess: false,
+  //   pagination: false,
+  //   select: {
+  //     slug: true,
+  //   },
+  // })
+  //
+  // const params = pages.docs
+  //   ?.filter((doc) => {
+  //     return doc.slug !== 'home'
+  //   })
+  //   .map(({ slug }) => {
+  //     return { slug }
+  //   })
+  //
+  // return params
+  return []
 }
 
 type Args = {

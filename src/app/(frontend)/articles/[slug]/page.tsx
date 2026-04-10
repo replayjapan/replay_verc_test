@@ -21,19 +21,21 @@ const articleTypeLabels: Record<string, string> = {
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const articles = await payload.find({
-    collection: 'articles',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  return articles.docs.map(({ slug }) => ({ slug }))
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const articles = await payload.find({
+  //   collection: 'articles',
+  //   draft: false,
+  //   limit: 1000,
+  //   overrideAccess: false,
+  //   pagination: false,
+  //   select: {
+  //     slug: true,
+  //   },
+  // })
+  //
+  // return articles.docs.map(({ slug }) => ({ slug }))
+  return []
 }
 
 type Args = {

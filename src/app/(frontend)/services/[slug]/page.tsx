@@ -25,18 +25,20 @@ type AuthorityItem = {
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const services = await payload.find({
-    collection: 'services',
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  return services.docs.map(({ slug }) => ({ slug }))
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const services = await payload.find({
+  //   collection: 'services',
+  //   limit: 1000,
+  //   overrideAccess: false,
+  //   pagination: false,
+  //   select: {
+  //     slug: true,
+  //   },
+  // })
+  //
+  // return services.docs.map(({ slug }) => ({ slug }))
+  return []
 }
 
 type Args = {

@@ -137,22 +137,24 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const { totalDocs } = await payload.count({
-    collection: 'videos',
-    overrideAccess: false,
-    where: {
-      _status: { equals: 'published' },
-    },
-  })
-
-  const totalPages = Math.ceil(totalDocs / PAGE_LIMIT)
-
-  const pages: { pageNumber: string }[] = []
-  // Start from page 2 — page 1 is canonical at /videos
-  for (let i = 2; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
-  }
-
-  return pages
+  // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
+  // const payload = await getPayload({ config: configPromise })
+  // const { totalDocs } = await payload.count({
+  //   collection: 'videos',
+  //   overrideAccess: false,
+  //   where: {
+  //     _status: { equals: 'published' },
+  //   },
+  // })
+  //
+  // const totalPages = Math.ceil(totalDocs / PAGE_LIMIT)
+  //
+  // const pages: { pageNumber: string }[] = []
+  // // Start from page 2 — page 1 is canonical at /videos
+  // for (let i = 2; i <= totalPages; i++) {
+  //   pages.push({ pageNumber: String(i) })
+  // }
+  //
+  // return pages
+  return []
 }
