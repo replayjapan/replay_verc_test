@@ -9,7 +9,7 @@ import { HeroHeaderBlock } from '@/blocks/HeroHeader/Component'
 import { BudouX } from '@/components/BudouX'
 import type { ArticlesSetting, Media } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 const articleTypeLabels: Record<string, string> = {

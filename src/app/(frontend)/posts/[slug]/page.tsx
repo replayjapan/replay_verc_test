@@ -20,6 +20,8 @@ import { BudouX } from '@/components/BudouX'
 import { TakeawayCallout } from '@/components/shared/TakeawayCallout'
 import { formatAuthors } from '@/utilities/formatAuthors'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateStaticParams() {
   // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
   // const payload = await getPayload({ config: configPromise })

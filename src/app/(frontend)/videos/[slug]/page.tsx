@@ -16,6 +16,8 @@ import VideoTranscriptAccordion from './VideoTranscriptAccordion'
 
 import type { Media } from '@/payload-types'
 
+export const dynamic = 'force-dynamic'
+
 const videoTypeLabels: Record<string, string> = {
   tutorial: 'チュートリアル',
   demo: 'デモ',

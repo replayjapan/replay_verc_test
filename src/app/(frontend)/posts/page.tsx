@@ -12,7 +12,7 @@ import { getCachedGlobal } from '@/utilities/getGlobals'
 import { Pagination } from '@/components/Pagination'
 import type { PostsSetting, Media, Category } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 export default async function Page() {

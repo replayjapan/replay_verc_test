@@ -14,7 +14,7 @@ import { getCachedGlobal } from '@/utilities/getGlobals'
 import { getYouTubeThumbnailUrl } from '@/utilities/youtubeThumb'
 import type { Media, VideosSetting, Video } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 const videoTypeLabels: Record<string, string> = {

@@ -15,6 +15,8 @@ import { getCachedGlobal } from '@/utilities/getGlobals'
 import { getServerSideURL } from '@/utilities/getURL'
 import type { SiteSetting, Media } from '@/payload-types'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateStaticParams() {
   // Skipped to avoid Vercel build timeout (Neon Postgres in Singapore, build server in D.C.)
   // const payload = await getPayload({ config: configPromise })

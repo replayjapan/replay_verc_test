@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import type { SiteSetting } from '@/payload-types'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Styleguide',
 }

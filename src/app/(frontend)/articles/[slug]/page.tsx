@@ -12,6 +12,8 @@ import { BudouX } from '@/components/BudouX'
 import { TakeawayCallout } from '@/components/shared/TakeawayCallout'
 import type { Media } from '@/payload-types'
 
+export const dynamic = 'force-dynamic'
+
 const articleTypeLabels: Record<string, string> = {
   article: '記事',
   'case-study': 'ケーススタディ',

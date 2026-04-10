@@ -14,7 +14,7 @@ import { generateMeta } from '@/utilities/generateMeta'
 import { sanitizeUrl } from '@/utilities/sanitizeUrl'
 import type { Media } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 export async function generateStaticParams() {

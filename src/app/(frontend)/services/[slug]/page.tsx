@@ -12,6 +12,8 @@ import RichText from '@/components/RichText'
 import { BudouX } from '@/components/BudouX'
 import type { Media, ServiceCategory } from '@/payload-types'
 
+export const dynamic = 'force-dynamic'
+
 type Deliverable = {
   title: string
   description?: string | null

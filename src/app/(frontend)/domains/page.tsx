@@ -12,6 +12,8 @@ import type { PaginatedResponse, SearchParams } from '@/types/api-responses'
 import type { Domain, DomainCategory, DomainSettings, PayloadDomainDocument } from '@/types/domain-types'
 import type { DomainsSetting, Media } from '@/payload-types'
 
+export const dynamic = 'force-dynamic'
+
 export interface DomainSetGroup {
   id: number | string
   title: string

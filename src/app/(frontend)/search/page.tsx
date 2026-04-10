@@ -1,6 +1,8 @@
 import type { Metadata } from 'next/types'
 import { SearchPageClient } from './SearchPageClient'
 
+export const dynamic = 'force-dynamic'
+
 type Args = {
   searchParams: Promise<{
     q?: string

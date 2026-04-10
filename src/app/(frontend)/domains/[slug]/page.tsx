@@ -12,6 +12,8 @@ import type { DomainsSetting } from '@/payload-types'
 import type { DomainSettings, PayloadDomainDocument } from '@/types/domain-types'
 import type { SetInfo } from '@/components/domains/SetsMembershipPanel/types'
 
+export const dynamic = 'force-dynamic'
+
 interface PageProps {
   params: Promise<{ slug: string }>
 }

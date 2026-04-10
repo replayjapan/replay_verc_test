@@ -8,7 +8,7 @@ import { HeroHeaderBlock } from '@/blocks/HeroHeader/Component'
 import { BudouX } from '@/components/BudouX'
 import type { Media, Service, ServicesSetting } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 type Deliverable = {

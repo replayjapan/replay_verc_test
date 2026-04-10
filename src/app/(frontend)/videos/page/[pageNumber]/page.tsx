@@ -12,7 +12,7 @@ import { generateListingMeta } from '@/utilities/generateListingMeta'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import type { Media, VideosSetting } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 const PAGE_LIMIT = 12

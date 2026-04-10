@@ -12,7 +12,7 @@ import { generateListingMeta } from '@/utilities/generateListingMeta'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import type { Media, Portfolio, PortfoliosSetting } from '@/payload-types'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 export default async function PortfolioPage() {
